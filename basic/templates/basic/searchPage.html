@@ -1,0 +1,28 @@
+{% extends "basic/base.html" %}
+{% load static %}
+
+{% block "styleSheet" %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'basic/css/blogCard.css' %}">
+{% endblock "styleSheet" %}
+
+{% block "mainContent" %}
+<h1>Search Here</h1>
+<form method="GET">
+    <input type="search" name="search" id="">
+    <button type="submit">Search</button>
+</form>
+
+
+{% if blogs %}
+{% comment %} {{blogs}} {% endcomment %}
+ <div class="blog-card-container">
+    {% include "basic/components/cards.html" %}
+ </div>
+
+
+{% else %}
+<h2>Please search anything </h2>
+{% endif %}
+
+{% endblock "mainContent" %}

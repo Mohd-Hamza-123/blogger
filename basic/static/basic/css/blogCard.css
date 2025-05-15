@@ -1,0 +1,22 @@
+.blog-card-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 23%;
+    height: 150px;
+    border-radius: 6px;
+    border: 2px solid black;
+    padding: 5px 10px;
+}
+
+.blog-card p {
+    color: gray;
+}

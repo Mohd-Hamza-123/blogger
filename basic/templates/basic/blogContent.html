@@ -1,0 +1,49 @@
+{% extends "basic/base.html" %}
+
+{% load static %}
+{% block "styleSheet" %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'basic/css/blogContent.css' %}">
+{% endblock "styleSheet" %}
+{% block "mainContent" %}
+
+
+<h3>{{blog.user.username}}</h3>
+<div class="title-trash-div">
+
+  <h2>{{blog.title}}</h2>
+
+  {% if is_logged_in %}
+  <a href="{% url "update_blog_view" blog.id %}"><button>Update</button></a>
+  <a href="{% url 'delete_blog_view' blog.id %}">
+    <i class='bx bxs-trash'></i>
+  </a>
+  <form action="{% url 'delete_blog_view' blog.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">delete</button>
+  </form>
+
+  {% comment %} popup is best to make in javascript {% endcomment %}
+  <a href="{% url 'blog_content_view' blog.id "Yes" %}">
+    <button>remove</button>
+  </a>
+
+  {% if confirm == "Yes" %}
+  <form action="{% url 'delete_blog_view' blog.id %}" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete the this blog ?</p>
+    <button type="submit">Yes</button>
+    <button><a href="{% url 'blog_content_view' blog.id "no" %}">No</a></button>
+   </form>
+  {% endif %}
+  {% endif %}
+
+
+
+</div>
+
+<span>{{blog.created_at}}</span>
+<article>
+  {{blog.content}}
+</article>
+{% endblock "mainContent" %}

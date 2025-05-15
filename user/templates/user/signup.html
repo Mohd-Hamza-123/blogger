@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'user/css/registration.css' %}">
+</head>
+
+<body>
+    {% comment %} {{form.errors}} {% endcomment %}
+    {% comment %} {{form}} {% endcomment %}
+    <div class="user">
+        <img src="{% static 'core/images/logo.png' %}}" alt="logo">
+        <h2>Create a new account</h2>
+        <form class="client" method="POST">
+            {% csrf_token %}
+            <span>{{form.username.errors}}</span>
+            <div class="pass">
+                <label for="{{form.username.id_for_label}}">{{form.username.label}}</label>
+               {{form.username}}
+            </div>
+
+             <div class="pass">
+                <label for="{{form.email.id_for_label}}">{{form.email.label}}</label>
+             {{form.email}}
+            </div> 
+            
+            <span>{{form.password1.errors}}</span>
+            <div class="pass">
+                <div class="passcontainer">
+                    <label for="{{form.password1.id_for_label}}">{{form.password1.label}}</label>
+                </div>
+               {{form.password1}}
+            </div>
+
+            <span>{{form.password2.errors}}</span>
+            <div class="pass">
+                <div class="passcontainer">
+                    <label for="{{form.password2.id_for_label}}">{{form.password2.label}}</label>
+                </div>
+               {{form.password2}}
+            </div>
+            <button>Sign in</button>
+        </form>
+
+        <p>Already have acount?<a href="{% url 'login_view' %}">Login</a></p>
+    </div>
+</body>
+
+</html>

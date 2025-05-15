@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'user/css/login.css' %}">
+</head>
+
+<body>
+    {% comment %} {{form}} {% endcomment %}
+   
+    <div class="user">
+        <img src="{% static 'core/images/logo.png' %}" alt="fsdf">
+        <h2>Sign in to account </h2>
+        {{form.non_field_errors}}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="client">
+                <label for="email">{{form.username.label}}</label>
+                {{form.username}}
+            </div>
+            <div class="client">
+                <label for="email">{{form.email.label}}</label>
+                {{form.email}}
+            </div>
+            <div class="client">
+                <div class="pass">
+                    <label for="password">{{form.password.label}}</label>
+                </div>
+               {{form.password}}
+            </div>
+            <button>Sign in </button>
+        </form>
+        <p>Not a member?<a href="{% url 'registration_view' %}">Sign up</a></p>
+
+    </div>
+
+
+</body>
+
+</html>

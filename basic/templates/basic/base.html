@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   {% block "styleSheet" %} 
+   <link rel="stylesheet" href="{% static 'basic/css/home.css' %}">
+   {% endblock "styleSheet" %}
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <img src="{% static 'core/images/logo.png' %}" alt="logo">
+        </div>
+       <div style="display: flex; gap: 15px;">
+        <a href="{% url 'home_view' %}">Home</a>
+        {% if is_logged_in %}
+         <a href="{% url 'profile_view' %}">Profile</a>
+        <a href="{% url 'create_blog_view' %}">Create</a>
+        {% endif %}
+        <a href="{% url 'search_blog_view' %}">search</a>
+       </div>
+
+       {% if is_logged_in %}
+       <button><a href="{% url 'logout_view' %}">Logout</a></button>
+       
+       {% else %}
+       <div>
+        <button><a href="{% url 'registration_view' %}">Sign up</a></button>
+        <button><a href="{% url 'login_view' %}">Login</a></button>
+     </div>
+       {% endif %}
+    
+       
+    </nav>
+    {% block "mainContent" %}
+    
+    {% endblock "mainContent" %}
+</body>
+</html>

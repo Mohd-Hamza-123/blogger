@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100dvw;
+    height: 100dvh;
+    overflow-x: hidden !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 10dvh;
+    background-color: rgb(24, 23, 23);
+    overflow-y: hidden;
+    padding: 0px 20px;
+}
+
+.navbar img {
+    height: 100px !important;
+    filter: invert(200%) brightness(200%);
+}
+
+.navbar a {
+    color: rgb(195, 193, 193);
+    text-decoration: none;
+    font-size: large;
+    font-family: cursive;
+}
+
+.navbar button {
+    background-color: white;
+    padding: 3px 5px;
+    border-radius: 10px;
+}
+
+.navbar button a {
+    color: black;
+}

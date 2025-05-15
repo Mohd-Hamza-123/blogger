@@ -1,0 +1,32 @@
+{% extends "basic/base.html" %}
+{% load static %}
+{% block "styleSheet" %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'basic/css/blogCard.css' %}">
+{% endblock "styleSheet" %}
+{% block "mainContent" %}
+<h2>Your Profile</h2>
+
+{% comment %} homework {% endcomment %}
+<h1>Your Blogs</h1>
+<div class="blog-card-container">
+{% include "basic/components/cards.html" with blogs=my_blogs %}
+</div>
+
+<h1>Your Hidden Blogs</h1>
+<div class="blog-card-container">
+{% include "basic/components/cards.html" with blogs=hidden_blogs %}
+</div>
+
+{% if liked_blogs|length == 0 %}
+<h2>No Liked Blogs</h2>
+{% else %}
+<h1>Liked Blogs</h1>
+<div class="blog-card-container">
+{% include "basic/components/cards.html" with blogs=liked_blogs %}
+</div>
+{% endif %}
+
+
+
+{% endblock "mainContent" %}

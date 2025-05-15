@@ -1,0 +1,19 @@
+{% extends "basic/base.html" %}
+{% load static %}
+{% block "styleSheet" %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'basic/css/blogCard.css' %}">
+{% endblock "styleSheet" %}
+
+
+
+{% block "mainContent" %}
+
+
+<div class="blog-card-container">
+{% include "basic/components/cards.html" %}
+</div>
+
+
+
+{% endblock "mainContent" %}

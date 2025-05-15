@@ -1,0 +1,21 @@
+{% comment %} {{liked_list}} {% endcomment %}
+
+{% for item in blogs %}
+
+<div class="blog-card">
+    
+    {{item.user.username}}
+    <h2 class='cursor-pointer'><a href="{% url 'blog_content_view' item.id 'no' %}">{{item.title}}</a></h2>
+    <p>{{item.content|truncatewords:15}}</p>
+    <span>published at : {{item.created_at}}</span>
+    <form method='POST' action="{% url 'update_like_count_view' item.id %}">
+        {% csrf_token %}
+        {% if item.id in liked_list %}
+             <button type="submit">❤️ {{item.like}}</button>
+        {% else %}
+             <button type="submit">🤍 {{item.like}}</button>
+        {% endif %}
+   
+    </form>
+</div>
+{% endfor %} 

@@ -131,6 +131,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 print(os.environ.get("DJANGO_ADMIN_PATH","/admin"))
 ADMIN_PATH = os.environ.get("DJANGO_ADMIN_PATH","/admin")
 # Default primary key field type

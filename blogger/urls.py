@@ -4,9 +4,11 @@ from practice.views import demo_form_view
 from user.views import registration_view, login_view, logout_view
 from basic.views import home_view, create_blog_view, blog_content_view, delete_blog_view, update_blog_view, search_blog_view, update_like_count_view
 from userprofile.views import profile_view
+from django.conf import settings
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(settings.ADMIN_PATH, admin.site.urls),
     # basic
     path('', home_view, name="home_view"),
     path('create-blog/', create_blog_view, name="create_blog_view"),

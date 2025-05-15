@@ -8,7 +8,6 @@ venv/
 env/
 
 # Django specific
-db.sqlite3
 settings_local.py
 
 # Static files

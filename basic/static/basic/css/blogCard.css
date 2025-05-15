@@ -20,3 +20,8 @@
 .blog-card p {
     color: gray;
 }
+
+.blog-card h2 a{
+    color: green;
+    text-decoration: none;
+}

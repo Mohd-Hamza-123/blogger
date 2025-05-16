@@ -15,5 +15,20 @@
 </div>
 
 
+{% if blogs.has_previous %}
+<button><a href="?page=1">&laquo; first page</a></button>
+<button><a href="?page={{blogs.previous_page_number}}">Previous</a></button>
+{% endif %}
+<span>
+    {{blogs.number}}/{{blogs.paginator.num_pages}}
+
+</span>
+{% if blogs.has_next %}
+<button><a href="?page={{blogs.next_page_number}}">Next</a></button>
+<button><a href="?page={{blogs.paginator.num_pages}}"> >> last page</a></button>
+
+{% endif %}
+
+
 
 {% endblock "mainContent" %}
